@@ -1,0 +1,324 @@
+
+
+  <!-- <!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Cost Prediction</title>
+    <style>
+        /* Styling the overall body with background image */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('{{ url_for('static', filename='medical.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            height: 100vh;  /* Set height to 100vh for full view */
+        }
+
+        /* Container for the content */
+        .container {
+            max-width: 500px;
+            margin: 80px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent */
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+
+        /* Main header style */
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-decoration: underline;
+        }
+
+        /* Style for form labels */
+        label {
+            margin: 10px 0 5px;
+            color: #666;
+            font-weight: bold;
+        }
+
+        /* Input fields and dropdowns */
+        input, select {
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Focus effect on input fields */
+        input:focus, select:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+        }
+
+        /* Submit button styling */
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            border: none;
+            padding: 12px;
+            font-size: 1.2em;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover effect on submit button */
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        /* Container for prediction text */
+        .prediction {
+            margin-top: 30px;
+            text-align: center;
+            background-color: #e9f7ef;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #d4edda;
+        }
+
+        /* Style for prediction text */
+        h2 {
+            color: #155724;
+            font-size: 1.5em;
+        }
+
+        /* Make the form flexible and responsive */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                margin: 50px auto;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Medical Insurance Cost Prediction</h1>
+        <form method="POST" action="/predict">
+            <label for="age">Age:</label>
+            <input type="number" name="age" required>
+
+            <label for="sex">Sex:</label>
+            <select name="sex" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label for="bmi">BMI:</label>
+            <input type="number" step="0.01" name="bmi" required>
+
+            <label for="children">Number of Children:</label>
+            <input type="number" name="children" required>
+
+            <label for="smoker">Smoker:</label>
+            <select name="smoker" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="region">Region:</label>
+            <select name="region" required>
+                <option value="northeast">Northeast</option>
+                <option value="northwest">Northwest</option>
+                <option value="southeast">Southeast</option>
+                <option value="southwest">Southwest</option>
+            </select>
+
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction_text %}
+            <div class="prediction">
+                <h2>{{ prediction_text }}</h2>
+                <h3>BMI Category: {{ bmi_category }}</h3>
+                <p>{{ advice }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        window.onload = function() {
+            {% if bmi_category %}
+                {% if bmi_category == 'Underweight' %}
+                    alert("Your BMI is underweight. It's recommended to consult a healthcare professional for a health assessment.");
+                {% elif bmi_category == 'Normal weight' %}
+                    alert("Your BMI is normal. Maintain a balanced diet and regular physical activity.");
+                {% elif bmi_category == 'Overweight' %}
+                    alert("Your BMI is overweight. Consider lifestyle changes to lower your BMI.");
+                {% elif bmi_category in ['Class 1 Obesity', 'Class 2 Obesity', 'Class 3 Obesity'] %}
+                    alert("Warning: Your BMI is in the obesity range ({{ bmi_category }}). Please consult a healthcare professional.");
+                {% endif %}
+            {% endif %} -->
+        <!-- } -->
+    </script>
+</body>
+</html>
+
+ -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Prediction</title>
+    <style>
+    .container {
+    font-family: Arial, sans-serif;
+    background-color: rgba(30, 30, 30, 0.9); /* Dark background for the entire container */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Box shadow for depth */
+    padding: 20px; /* Padding around the content */
+    max-width: 600px; /* Max width for the container */
+    margin: 20px auto; /* Center the container */
+    text-align:center;
+}
+
+body {
+    background-image: url('static/medical.jpg'); /* Replace with your image path */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    color: #fff; /* Text color for contrast against background */
+}
+
+h1 {
+    text-align: center;
+    color: black; /* Header color */
+    margin-bottom: 20px; /* Spacing below header */
+}
+
+form {
+    background-color: rgba(30, 30, 30, 0.9); /* Dark background with slight transparency */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto; /* Center the form */
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #fff; /* Label color */
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444; /* Darker border color */
+    border-radius: 4px;
+    background-color: #222; /* Dark background for input */
+    color: #fff; /* White text color for input */
+}
+
+input[type="text"]:focus, select:focus {
+    border-color: #28a745; /* Highlight border on focus */
+    outline: none; /* Remove outline */
+}
+
+button {
+    background-color: #28a745; /* Green color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.prediction-container {
+    background-color: black; /* Solid background for prediction box */
+    border-radius: 8px;
+    padding: 20px; /* Increased padding for better spacing */
+    margin: 20px auto; /* Center the prediction box */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Box shadow for depth */
+    text-align: center; /* Center text inside the box */
+}
+
+h2 {
+    font-family: Arial, sans-serif; /* Consistent font */
+    text-align: center;
+    color: white; /* Green color for the heading */
+    margin: 0 0 10px; /* Spacing below heading */
+}
+
+prediction-text {
+    font-family: Arial, sans-serif; /* Consistent font */
+    font-size: 22px; /* Larger font size for emphasis */
+    color: white; /* White color for prediction text */
+    margin: 10px 0; /* Spacing above and below */
+    padding: 15px; /* Inner padding for the text */
+    background-color:black;
+    border: 1px solid #28a745; /* Green border around text */
+    border-radius: 5px; /* Rounded corners for the border */
+}
+    </style>
+</head>
+<body>
+    <h1>Predict Insurance Charges</h1>
+    <form action="/predict" method="POST">
+        Age: <input type="text" name="age"><br>
+        Sex: <select name="sex">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br>
+        BMI: <input type="text" name="bmi"><br>
+        Children: <input type="text" name="children"><br>
+        Smoker: <select name="smoker">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br>
+        Region: <select name="region">
+            <option value="southwest">Southwest</option>
+            <option value="southeast">Southeast</option>
+            <option value="northwest">Northwest</option>
+            <option value="northeast">Northeast</option>
+        </select><br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_rf %}
+        <div class="container">
+        <h2>Random Forest Prediction:</h2>
+        <div class="container">Your predicted value is: {{ prediction_rf }}</div>
+    {% endif %}
+</body>
+</html>
+
